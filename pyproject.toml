@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kandangular"
+version = "0.1.0"
+description = "Fondasi web modular Django, FastAPI, Flask, dan Streamlit"
+requires-python = ">=3.12"
+dependencies = [
+ "Django>=5.2.14,<5.3", "fastapi>=0.115,<1", "Flask>=3.1,<4",
+ "streamlit>=1.45,<2", "uvicorn>=0.34,<1", "argon2-cffi>=23", "whitenoise>=6.9,<7",
+]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "pip-audit>=2.9,<3"]
+[project.scripts]
+kandangular = "kandangular.cli:main"
+[tool.setuptools.packages.find]
+include = ["kandangular*"]
+[tool.setuptools.package-data]
+kandangular = ["templates/*.html"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

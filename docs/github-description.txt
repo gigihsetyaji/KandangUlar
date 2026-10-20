@@ -1,0 +1,1 @@
+Tempat Ide Berkembang, Kode Python Bergerak. Fondasi web Python modular: Django, FastAPI, Flask, dan Streamlit; admin, ORM, API bertoken, dashboard, CLI, pengujian integrasi, CI, serta konfigurasi keamanan produksi.
