@@ -44,7 +44,30 @@ kandangular manage createsuperuser
 kandangular serve
 ```
 
-Buka http://127.0.0.1:8000. Di terminal lain dengan virtualenv aktif, jalankan `kandangular dashboard`. CLI tidak otomatis membaca `.env`; `.env.example` menjelaskan variabel yang perlu diekspor. Simpan secret di secret manager agar tidak berubah setiap restart pada penggunaan nyata.
+Buka http://127.0.0.1:8000 untuk aplikasi utama, http://127.0.0.1:8000/admin/ untuk login admin, dan http://127.0.0.1:8000/api/docs untuk dokumentasi API. Akun admin cukup dibuat sekali per database; tidak perlu menjalankan `createsuperuser` setiap kali server dimulai.
+
+CLI tidak otomatis membaca `.env`; `.env.example` menjelaskan variabel yang perlu diekspor. Simpan secret di secret manager agar tidak berubah setiap restart pada penggunaan nyata.
+
+### Menjalankan dashboard Streamlit
+
+Buka terminal kedua. Untuk lokasi proyek pada komputer ini, jalankan:
+
+```sh
+cd /home/bayu/Projects/KandangUlar
+source .venv/bin/activate
+kandangular dashboard
+```
+
+Jika proyek disimpan di lokasi lain, sesuaikan perintah `cd` dengan folder proyek kamu. Pada penggunaan pertama, Streamlit mungkin meminta email opsional; kosongkan dan tekan Enter untuk melanjutkan.
+
+Buka **http://127.0.0.1:8501**. Dashboard berjalan sebagai proses terpisah dari aplikasi utama pada port 8000, sehingga keduanya dapat dijalankan bersamaan. Tekan `Ctrl+C` di masing-masing terminal untuk menghentikannya.
+
+Grafik dashboard saat ini memakai data contoh yang ditulis langsung di `kandangular/dashboard.py`, belum mengambil data database atau API.
+
+### Mencoba API
+
+Jalankan contoh berikut dari terminal yang memiliki variabel `KANDANGULAR_API_TOKEN` yang sama dengan server:
+
 
 ```sh
 curl http://127.0.0.1:8000/api/v1/projects \
