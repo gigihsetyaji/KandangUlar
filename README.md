@@ -50,10 +50,10 @@ CLI tidak otomatis membaca `.env`; `.env.example` menjelaskan variabel yang perl
 
 ### Menjalankan dashboard Streamlit
 
-Buka terminal kedua. Untuk lokasi proyek pada komputer ini, jalankan:
+Buka terminal kedua dari folder induk tempat proyek disimpan, lalu jalankan:
 
 ```sh
-cd /home/bayu/Projects/KandangUlar
+cd KandangUlar
 source .venv/bin/activate
 kandangular dashboard
 ```
